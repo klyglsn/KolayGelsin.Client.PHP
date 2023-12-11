@@ -51,7 +51,7 @@ class SendeoClient
     private function Request($data, $authToken, $path, $isPost = false)
     {
         // Setup cURL
-        $ch = curl_init($this->baseUrl . '/' . $path);
+        $ch = curl_init($this->baseUrl . $path);
 
         if ($isPost) {
             curl_setopt_array(
