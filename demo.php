@@ -1,14 +1,10 @@
 <?php
 
-require("./Sendeo.Client/Sendeo.Client.php");
-require("./Sendeo.Client/Models/LoginAES.php");
+require("./KolayGelsin.Client/KolayGelsin.Client.php");
+require("./KolayGelsin.Client/Models/LoginAES.php");
 
-
-
-$clinet  = new SendeoClient();
-
+$client  = new KolayGelsinClient();
 $loginUser = new LoginAES("TestUserName","TestPassWord");
 
-$result = $clinet->Login($loginUser);
-
+$result = $client->Login($loginUser);
 print_r($result);

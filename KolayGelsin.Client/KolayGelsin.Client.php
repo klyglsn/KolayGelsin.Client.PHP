@@ -1,6 +1,6 @@
 <?php
 
-class SendeoClient
+class KolayGelsinClient
 {
     // Test Base Url
     public string $baseUrl = "https://api-dev.sendeo.com.tr";
