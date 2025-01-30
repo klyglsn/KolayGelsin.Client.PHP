@@ -2,49 +2,44 @@
 
 class KolayGelsinClient
 {
-    // Test Base Url
-    public string $baseUrl = "https://api-dev.sendeo.com.tr";
-
+    public string $baseUrl = "https://bff.kolaygelsin.com/gateway";
 
     function Login($req)
     {
-        return $this->LoginAES($req, '/api/Token/LoginAES');
+        return $this->LoginAES($req, '/gateway/Token/LoginAES');
     }
 
     function SetDelivery($token, $req)
     {
-        return $this->Request($req, $token, '/api/Cargo/SETDELIVERY', true);
+        return $this->Request($req, $token, '/Cargo/SETDELIVERY', true);
     }
-
 
     function TrackDelivery($token, $req)
     {
         $queryString = '?trackingNo=' . $req->trackingNo . '&referenceNo=' . $req->referenceNo;
-        return $this->Request($req, $token, '/api/Cargo/TRACKDELIVERY' . $queryString, false);
+        return $this->Request($req, $token, '/Cargo/TRACKDELIVERY' . $queryString, false);
     }
-
 
     function CancelDelivery($token, $req)
     {
         $queryString = '?trackingNo=' . $req->trackingNo . '&referenceNo=' . $req->referenceNo;
-        return $this->Request($req, $token, '/api/Cargo/CANCELDELIVERY' . $queryString, true);
+        return $this->Request($req, $token, '/Cargo/CANCELDELIVERY' . $queryString, true);
     }
-
 
     function CargoMeasurementUpdate($token, $req)
     {
-        return $this->Request($req, $token, '/api/Cargo/CARGOMEASUREMENTUPDATE', true);
+        return $this->Request($req, $token, '/Cargo/CARGOMEASUREMENTUPDATE', true);
     }
 
     function GetBarcodeByTrackingNumber($token, $req)
     {
-        return $this->Request($req, $token, '/api/Cargo/GETBARCODEBYTRACKINGNUMBER', true);
+        return $this->Request($req, $token, '/Cargo/GETBARCODEBYTRACKINGNUMBER', true);
     }
 
     function GetCityDistricts($token, $req)
     {
         $queryString = '?CityName=' . $req->CityName . '&DistrictName=' . $req->DistrictName;
-        return $this->Request($req, $token, '/api/Cargo/GetCityDistricts' . $queryString, false);
+        return $this->Request($req, $token, '/Cargo/GetCityDistricts' . $queryString, false);
     }
 
 
